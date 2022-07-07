@@ -1,0 +1,26 @@
+body {
+    margin: 0px;
+    font-family: 'Heebo', sans-serif;
+    background-image: url(https://img.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg?t=st=1656227397~exp=1656227997~hmac=47996777eea722856032199995aab0c3f2d2288fe6fbceba2dd6fd59b97c8adb&w=900);
+    background-size: cover;
+}
+
+.jumbotron {
+    background-image: url('https://images.unsplash.com/photo-1570715746786-e7ca46b1e50b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80');
+    background-size: cover;
+    height: 500px;
+}
+
+.btn-info {
+    background-color: rgb(35, 255, 182);
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px black !important;
+}
+
+.btn-info:hover {
+    background-color: rgb(1, 187, 125);
+}
+
+.shadow{
+    box-shadow: 5px 5px 8px rgb(116, 116, 116);
+}

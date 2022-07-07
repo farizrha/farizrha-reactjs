@@ -94,17 +94,17 @@ export default class Biografi extends Component {
                       </tr>
                       <tr>
                         <td>1</td>
-                        <td>Rudiono</td>
+                        <td>R</td>
                         <td>Ayah</td>
                       </tr>
                       <tr>
                         <td>2</td>
-                        <td>Nine Maharani</td>
+                        <td>N</td>
                         <td>Ibu</td>
                       </tr>
                       <tr>
                         <td>3</td>
-                        <td>Nada Ghaisani Salsabila</td>
+                        <td>N</td>
                         <td>Kakak</td>
                       </tr>
                     </tbody>

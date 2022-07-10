@@ -1,11 +1,17 @@
 // import { Komponen } from "./Materi/Komponen";
-import Styling from "./Materi/Styling";
+// import Reuseable from "./Materi/Reusable";
+// import Styling from "./Materi/Styling";
+
+import Form from "./Materi/Form";
+
+// import Rendering from "./Materi/Rendering";
+
 
 
 function App() {
   return (
     <div className="App">
-        <Styling/>
+        <Form/>
     </div>
   );
 }

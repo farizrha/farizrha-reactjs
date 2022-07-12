@@ -1,9 +1,9 @@
-import Lifecycle from "./Materi/Lifecycle";
+import { Hooks } from "./Materi/Hooks";
 
 function App() {
   return (
     <div className="App">
-      <Lifecycle/>
+      <Hooks/>
     </div>
   );
 }

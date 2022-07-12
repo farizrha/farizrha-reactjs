@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React from "react";
+import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
 import { Circles } from "react-loader-spinner";
+import { useEffect } from "react";
 
 const Paragraph = styled.p`
   overflow: hidden;
@@ -12,41 +13,34 @@ const Paragraph = styled.p`
   -webkit-box-orient: vertical;
 `;
 
-export default class NewsAPI extends Component {
-  state = {
-    news: [],
-    search: "",
-    isLoading: false,
-  };
+export const News = () => {
+  const [search, setSearch] = useState();
+  const [news, setNews] = useState([]);
+  let [loading, setLoading] = useState(false);
 
-  getNews = () => {
-    this.setState({
-          isLoading: true,
-        });
-    axios
-      .get(
-        `https://newsapi.org/v2/everything?q=${this.state.search}&from=2022-07-11&sortBy=popularity&apiKey=8d9a1d3fae944e4fb74b20bb67a117d2`
-      )
+  useEffect(() => {
+    getNews()
+  },[])
+
+  function getNews () {
+    setLoading(loading = true);
+    const url = `https://newsapi.org/v2/everything?q=${search}&from=2022-07-11&sortBy=popularity&apiKey=8d9a1d3fae944e4fb74b20bb67a117d2`;
+    const news = fetch(url);
+    news
+      .then(function (res) {
+        return res.json();
+      })
       .then((res) => {
-        this.setState({ news: res.data.articles, });
-        this.setState({
-            isLoading: false,
-        });
-        // console.log(res);
-
+        setNews(res.articles || []);
+        setLoading(loading = false);
       })
       .catch((err) => {
-        console.log(err);
+        // table.innerHTML = message(err.message)
       });
-
-    
   };
 
-  render() {
-    
-
-    return (
-      <div>
+  return (
+    <div>
         {/* Navbar */}
         <nav
           className="navbar navbar-light"
@@ -69,16 +63,12 @@ export default class NewsAPI extends Component {
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
-                    onChange={(e) =>
-                      this.setState({
-                        search: e.target.value,
-                      })
-                    }
+                    onChange={e => setSearch(e.target.value)}
                   />
                   <button
                     className="btn btn-outline-success"
                     type="button"
-                    onClick={this.getNews}
+                    onClick={getNews}
                   >
                     Search
                   </button>
@@ -89,10 +79,10 @@ export default class NewsAPI extends Component {
           <div className="album py-5 bg-light">
             <div className="container">
               <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                {this.state.isLoading ? 
+                {loading ? 
                   <Circles color="#00BFFF"/>
                  : (
-                  this.state.news.map((item, index) => (
+                  news.map((item, index) => (
                     <div className="col" key={index}>
                       <div className="card shadow-sm">
                         <img
@@ -133,6 +123,5 @@ export default class NewsAPI extends Component {
           </div>
         </main>
       </div>
-    );
-  }
-}
+  );
+};

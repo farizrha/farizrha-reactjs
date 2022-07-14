@@ -1,10 +1,10 @@
-import { Routing } from "./Materi/Routing";
+import { Redux } from "./Materi/Redux";
 
 
 function App() {
   return (
     <div className="App">
-      <Routing/>
+      <Redux/>
     </div>
   );
 }
